@@ -1,8 +1,8 @@
-import React, {useCallback, useRef} from 'react';
+import React, { useCallback, useRef } from 'react';
 
-import {JitsiMeeting} from '@jitsi/react-native-sdk';
+import { JitsiMeeting } from '@jitsi/react-native-sdk';
 
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 
 
 interface MeetingProps {
@@ -36,22 +36,25 @@ const Meeting = ( { route }: MeetingProps ) => {
       <JitsiMeeting
           config = {{
             hideConferenceTimer: true,
-            customToolbarButtons: [
-              {
-                icon: "https://w7.pngwing.com/pngs/987/537/png-transparent-download-downloading-save-basic-user-interface-icon-thumbnail.png",
-                id: "btn1",
-                text: "Button one"
-              }, {
-                icon: "https://w7.pngwing.com/pngs/987/537/png-transparent-download-downloading-save-basic-user-interface-icon-thumbnail.png",
-                id: "btn2",
-                text: "Button two"
-              }
-            ],
-            toolbarButtons: [ 'microphone', 'camera', 'screensharing', 'overflowmenu', 'hangup' ],
+            // customToolbarButtons: [
+            //   {
+            //     icon: "https://w7.pngwing.com/pngs/987/537/png-transparent-download-downloading-save-basic-user-interface-icon-thumbnail.png",
+            //     id: "btn1",
+            //     text: "Button one"
+            //   }, {
+            //     icon: "https://w7.pngwing.com/pngs/987/537/png-transparent-download-downloading-save-basic-user-interface-icon-thumbnail.png",
+            //     id: "btn2",
+            //     text: "Button two"
+            //   }
+            // ],
+            // toolbarButtons: [ 'microphone', 'camera', 'screensharing', 'overflowmenu', 'hangup' ],
             whiteboard: {
                 enabled: true,
                 collabServerBaseUrl: "https://meet.jit.si/",
             },
+            analytics: {
+                disabled: true
+            }
           }}
           eventListeners = { eventListeners as any }
           flags = {{
