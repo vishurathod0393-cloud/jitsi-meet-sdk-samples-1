@@ -54,9 +54,10 @@ public class MainActivity extends AppCompatActivity {
                 = new JitsiMeetConferenceOptions.Builder()
                 .setServerURL(serverURL)
                 .setFeatureFlag("pip.enabled", false)
-                // .setConfigOverride("customToolbarButtons", getCustomToolbarButtons())
-                // .setConfigOverride("toolbarButtons", getToolbarButtons())
-                .setConfigOverride("recordingService", getRecordingService())
+                .setFeatureFlag("recording.enabled", true)
+                //.setConfigOverride("customToolbarButtons", getCustomToolbarButtons())
+                //.setConfigOverride("toolbarButtons", getToolbarButtons())
+                //.setConfigOverride("recordingService", getRecordingService())
                 .build();
         JitsiMeet.setDefaultConferenceOptions(defaultOptions);
 
@@ -84,12 +85,13 @@ public class MainActivity extends AppCompatActivity {
                     .setAudioMuted(true)
                     .setVideoMuted(true)
                     // When using JaaS, set the obtained JWT here
-                    //.setToken("MyJWT")
+                    //.setToken("JWToken")
                     // Different features flags can be set
                     //.setFeatureFlag("toolbox.enabled", false)
                     //.setFeatureFlag("prejoinpage.enabled", false)
                     .setFeatureFlag("pip.enabled", true)
                     .setFeatureFlag("welcomepage.enabled", false)
+                    //.setFeatureFlag("recording.enabled", true)
                     .build();
             // Launch the new activity with the given options. The launch() method takes care
             // of creating the required Intent and passing the options.
@@ -131,13 +133,15 @@ public class MainActivity extends AppCompatActivity {
     //     return customToolbarButtons;
     // }
 
-    private static Bundle getRecordingService() {
-        Bundle recordingService = new Bundle();
-        recordingService.putBoolean("enabled", true);
-        recordingService.putBoolean("sharingEnabled", true);
-
-        return recordingService;
-    }
+//    private static Bundle getRecordingService() {
+//        Bundle recordingService = new Bundle();
+//        recordingService.putBoolean("enabled", true);
+//        recordingService.putBoolean("sharingEnabled", true);
+//        recordingService.putBoolean("fileRecordingsEnabled", true);
+//        recordingService.putBoolean("fileRecordingsServiceEnabled", true);
+//
+//        return recordingService;
+//    }
 
     private void registerForBroadcastMessages() {
         IntentFilter intentFilter = new IntentFilter();
